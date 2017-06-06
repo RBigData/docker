@@ -18,7 +18,16 @@ Alternatively, if you prefer/need to to work with the docker file directly:
 1. Copy `Dockerfile` to your machine.
 2. cd to the dir containing `Dockerfile`
 3. `sudo docker build -t pbdr-cs .`
-4. `sudo docker run -i -t pbdr-cs`
+4. `sudo docker run -i -t -p 55555:55555 pbdr-cs`
+
+
+You can connect to your container by running:
+
+```r
+remoter::client()
+```
+
+The password is `pbd`.
 
 
 
