@@ -24,4 +24,4 @@ Alternatively, you can copy the Dockerfile from this repository and run:
 
 # Contact
 
-If something goes wrong, please open an issue on the main github repository.
+If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-base).
