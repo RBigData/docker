@@ -16,6 +16,7 @@ RUN r -e "install.packages(c('getPass', 'png', 'sodium'), \
 
 # install latest pbdR packages from github
 RUN r -e "                                        \
+  remotes::install_github('wrathematics/getip') ; \
   remotes::install_github('RBigData/pbdRPC')    ; \
   remotes::install_github('RBigData/pbdZMQ')    ; \
   remotes::install_github('RBigData/remoter')   ; \
@@ -29,5 +30,10 @@ EXPOSE 55555
 
 
 
+# FIXME Open a remoter session for now
+# RUN r -e "remoter::server(password='pbd')"
+
+
+
 # default command
-CMD ["bash"]
+CMD ["r", "-e", "remoter::server(password='pbd')"]
