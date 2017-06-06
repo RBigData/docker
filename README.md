@@ -21,13 +21,18 @@ Alternatively, if you prefer/need to to work with the docker file directly:
 4. `sudo docker run -i -t -p 55555:55555 pbdr-cs`
 
 
+
+# Using the Container
+
 You can connect to your container by running:
 
 ```r
 remoter::client()
 ```
 
-The password is `pbd`.
+from R. The password is `pbd`.
+
+You can exit from the R session at any time by entering `exit()`. If you wish to disconnect and also shut down the container, enter `exit(F)`.  For more information about the client/server system, see the [**remoter** package](https://github.com/RBigData/remoter).
 
 
 
