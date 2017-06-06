@@ -78,5 +78,13 @@ RUN echo "options(repos=structure(c(CRAN='https://cran.rstudio.com/'))) ; \
 
 
 
+# cleanup
+RUN rm -rf /tmp/*
+RUN apt-get remove -y --purge python wget
+RUN apt-get autoremove -y
+RUN apt-get autoclean
+
+
+
 # default command
 CMD ["bash"]
