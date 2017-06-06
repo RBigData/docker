@@ -1,4 +1,4 @@
-FROM RBigData/pbdRr-base
+FROM rbigdata/pbdr-base
 MAINTAINER "The pbdR Core Team" RBigData@gmail.com
 
 RUN apt-get update \
