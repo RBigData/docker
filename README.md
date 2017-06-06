@@ -61,4 +61,4 @@ library(pbdMPI, lib.loc="/usr/local/pbd-prof")
 
 # Contact
 
-If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-base).
+If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-compute).
