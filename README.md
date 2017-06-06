@@ -1,6 +1,8 @@
 # pbdr-base
 
-Docker configuration for the base pbdR system. This includes the computation packages (pbdMPI, pbdDMAT, ...) but not client/server related ones (pbdZMQ, remoter, ...).
+Docker configuration for the base pbdR system.
+
+NOTE: this is only intended for pbdR developers. Please instead see [pbd-compute](https://github.com/wrathematics/pbdr-compute) and [pbd-cs](https://github.com/RBigData/pbdr-cs).
 
 
 
