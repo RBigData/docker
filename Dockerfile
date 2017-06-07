@@ -74,9 +74,14 @@ RUN r -e "                                                            \
 # some quality of life stuff
 RUN echo "alias R='R --no-save --quiet'" >> /etc/bash.bashrc
 RUN echo "options(repos=structure(c(CRAN='https://cran.rstudio.com/'))) ; \
-  utils::rc.settings(ipck=TRUE); \
-  library(colorout); \
+  utils::rc.settings(ipck=TRUE);                                          \
+  library(colorout);                                                      \
   " > /usr/lib/R/etc/Rprofile.site
+
+
+
+# use openblas
+RUN update-alternatives --set libblas.so.3 /usr/lib/openblas-base/libblas.so.3
 
 
 
