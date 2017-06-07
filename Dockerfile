@@ -45,26 +45,28 @@ RUN r -e "                                        \
 
 # build mpiP
 ENV MPIP_VERSION 3.4.1
-RUN cd /tmp \
-  && wget https://github.com/LLNL/mpiP/archive/${MPIP_VERSION}.tar.gz \
-  && tar zxf ${MPIP_VERSION}.tar.gz \
-  && cd mpiP-${MPIP_VERSION} \
+ENV MPIP_LIB_DIR /opt/mpiP
+RUN cd /tmp                                                                    \
+  && wget https://github.com/LLNL/mpiP/archive/${MPIP_VERSION}.tar.gz          \
+  && tar zxf ${MPIP_VERSION}.tar.gz                                            \
+  && cd mpiP-${MPIP_VERSION}                                                   \
   && sed -i -e 's/os[.]environ\["LOGNAME"\]/\"pbdR\"/' make-wrappers.py \
-  && CC="mpicc -fPIC" ./configure --disable-libunwind --prefix=/opt/mpiP \
-  && make \
-  && make install \
+  && CC="mpicc -fPIC" ./configure --disable-libunwind --prefix=${MPIP_LIB_DIR} \
+  && make                                                                      \
+  && make install                                                              \
   && rm -rf mpiP-${MPIP_VERSION}/
 
 # build pbdPROF and pbdPROF-enabled pbdMPI
-RUN mkdir /usr/local/pbd-prof
+ENV PROF_LIB_DIR /usr/local/pbd-prof
+RUN mkdir ${PROF_LIB_DIR}
 
-RUN r -e "                                                      \
-  remotes::install_github('RBigData/pbdPROF',                   \
-    lib='/usr/local/pbd-prof',                                  \
-    configure.args='--with-mpiP=\"/opt/mpiP/lib/libmpiP.a\"') ; \
-  remotes::install_github('RBigData/pbdMPI',                    \
-    configure.args='--enable-pbdPROF=yes',                          \
-    lib='/usr/local/pbd-prof')    ;                             \
+RUN r -e "                                                            \
+  remotes::install_github('RBigData/pbdPROF',                         \
+    lib='${PROF_LIB_DIR}',                                            \
+    configure.args='--with-mpiP=\"${MPIP_LIB_DIR}/lib/libmpiP.a\"') ; \
+  remotes::install_github('RBigData/pbdMPI',                          \
+    configure.args='--enable-pbdPROF=yes',                            \
+    lib='${PROF_LIB_DIR}')                                          ; \
 "
 
 
