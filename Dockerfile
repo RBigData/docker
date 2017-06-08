@@ -9,8 +9,13 @@ RUN apt-get update \
 
 
 # some CRAN dependencies
-RUN r -e "install.packages(c('getPass', 'png', 'sodium'), \
-  repos='https://cran.rstudio.com/', dependencies='Imports')"
+RUN apt-get install -y \
+  r-cran-curl
+
+RUN r -e "install.packages(                                   \
+  c('remotes', 'getPass', 'png', 'sodium'),                   \
+  repos='https://cran.rstudio.com/', dependencies='Imports')  \
+"
 
 
 
@@ -22,7 +27,7 @@ RUN r -e "                                      \
 
 
 
-# open default remoter/cs port
+# open default remoter port
 EXPOSE 55555
 
 
