@@ -1,4 +1,4 @@
-# pbdr-base
+# pbdr-kazaam
 
 Docker configuration for the the [kazaam package](https://github.com/RBigData/kazaam) for distributed matrix computing with R.
 
@@ -24,4 +24,4 @@ Alternatively, if you prefer/need to to work with the docker file directly:
 
 # Contact
 
-If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-base).
+If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-kazaam).
