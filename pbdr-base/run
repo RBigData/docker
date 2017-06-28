@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo docker build -t pbdr-base .
+sudo docker run -i -t pbdr-base
