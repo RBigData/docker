@@ -2,7 +2,7 @@
 
 Docker configuration for the base pbdR system.
 
-NOTE: this is only intended for pbdR developers. Please instead see [pbd-compute](https://github.com/wrathematics/pbdr-compute) and [pbd-cs](https://github.com/RBigData/pbdr-cs).
+NOTE: this is only intended for pbdR developers. Please instead see [pbd-compute](https://github.com/RBigData/docker/tree/master/pbdr-base) and [pbd-cs](https://github.com/RBigData/docker/tree/master/pbdr-cs).
 
 
 
@@ -26,4 +26,4 @@ Alternatively, if you prefer/need to to work with the docker file directly:
 
 # Contact
 
-If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-base).
+If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/docker).

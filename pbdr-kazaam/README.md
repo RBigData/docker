@@ -24,4 +24,4 @@ Alternatively, if you prefer/need to to work with the docker file directly:
 
 # Contact
 
-If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-kazaam).
+If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/docker).

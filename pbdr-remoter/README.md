@@ -1,6 +1,6 @@
 # pbdr-cs
 
-Docker configuration for the remoter server. This includes the [pbdr-base](https://github.com/RBigData/pbdr-base) system.
+Docker configuration for the remoter server. This includes the [pbdr-base](https://github.com/RBigData/docker/tree/master/pbdr-base) system.
 
 
 
@@ -38,4 +38,4 @@ You can exit from the R session at any time by entering `exit()`. If you wish to
 
 # Contact
 
-If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/pbdr-remoter).
+If something goes wrong, please open an issue on the [github repository](https://github.com/RBigData/docker).
