@@ -10,10 +10,17 @@ RUN apt-get update \
 RUN r -e "                                              \
   install.packages(c('rbenchmark', 'locfit', 'fda.usc', \
   'randomForest', 'mlbench', 'pbdZMQ'))               ; \
-  remotes::install_github('wrathematics/openblasctl') ; \
-  remotes::install_github('RBigData/remoter')         ; \
 "
 
+RUN r -e "                        \
+  install.packages(c('inline')) ; \
+"
+
+RUN r -e "                                              \
+  remotes::install_github('wrathematics/openblasctl') ; \
+  remotes::install_github('RBigData/remoter')         ; \
+  remotes::install_github('RBigData/pbdRPC')          ; \
+"
 
 # create an R user
 ENV HOME /home/pbdR
