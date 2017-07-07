@@ -1,4 +1,4 @@
-# pbdr-compute
+# pbdr-workshop
 
 Docker configuration for use with pbdR workshops/tutorials.  This includes the pbdR compute system, as well as some useful additional packges like [randomForest](https://cran.r-project.org/web/packages/randomForest/index.html) and [mlbench](https://cran.r-project.org/web/packages/mlbench/index.html).
 
