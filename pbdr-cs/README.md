@@ -13,12 +13,24 @@ sudo docker pull rbigdata/pbdr-cs
 sudo docker run -i -t -p 55555:55555 rbigdata/pbdr-cs
 ```
 
+By default, this will launch 2 pbdR servers (MPI ranks).  To modify this number, modify the container environment variable `PBD_RANKS`.  So for example, to launch with 4 ranks running within the container, you would run:
+
+```
+sudo docker run -i -t -p 55555:55555 -e PBD_RANKS=4 rbigdata/pbdr-cs
+```
+
 Alternatively, if you prefer/need to to work with the docker file directly:
 
 1. Copy `Dockerfile` to your machine.
 2. cd to the dir containing `Dockerfile`
 3. `sudo docker build -t pbdr-cs .`
 4. `sudo docker run -i -t -p 55555:55555 pbdr-cs`
+
+Similarly, to use a different number of ranks you can run:
+
+```
+sudo docker run -i -t -p 55555:55555 -e PBD_RANKS=4 pbdr-cs
+```
 
 
 
