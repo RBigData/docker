@@ -40,4 +40,4 @@ USER pbdR
 # spawn the servers
 ENV PBD_RANKS 2
 EXPOSE 55555
-CMD ["r", "-e", "nranks=as.integer(Sys.getenv('PBD_RANKS')); pbdCS::pbdSpawn(nranks=nranks)"]
+CMD ["Rscript", "-e", "nranks=as.integer(Sys.getenv('PBD_RANKS')); pbdCS::pbdSpawn(nranks=nranks)"]
