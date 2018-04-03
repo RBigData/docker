@@ -1,6 +1,6 @@
 # pbdr-mpi
 
-Docker configuration for the the [pbdMPI package](https://github.com/RBigData/pbdMPI).  It is meant to be a minimal and light weight container.  For a larger ecosystem of pbdR packages, see the [pbdr-compute](https://github.com/RBigData/docker/tree/master/pbdr-compute) container.
+Docker configuration for the the [pbdMPI package](https://github.com/RBigData/pbdMPI).  It is meant to be a minimal and light weight container.  For a larger ecosystem of pbdR packages, see the [pbdr-compute](https://github.com/RBigData/docker/tree/master/devel/compute) container.
 
 
 

@@ -1,6 +1,6 @@
 # pbdr-compute
 
-Docker configuration for the pbdR compute system. This includes the computation packages (pbdMPI, pbdDMAT, ...) but not client/server related ones (pbdZMQ, remoter, ...). For the latter, see [pbdr-cs](https://github.com/RBigData/pbdr-cs), which is a strict superset of pbdr-compute.
+Docker configuration for the pbdR compute system. This includes the computation packages (pbdMPI, pbdDMAT, ...) but not client/server related ones (pbdZMQ, remoter, ...). For the latter, see [pbdr-cs](https://github.com/RBigData/devel/cs), which is a strict superset of pbdr-compute.
 
 
 

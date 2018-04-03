@@ -2,7 +2,7 @@
 
 Docker configuration for the base pbdR system.
 
-NOTE: this is only intended for pbdR developers. Please instead see [pbd-compute](https://github.com/RBigData/docker/tree/master/pbdr-base) and [pbd-cs](https://github.com/RBigData/docker/tree/master/pbdr-cs).
+NOTE: this is only intended for pbdR developers. Please instead see [pbd-compute](https://github.com/RBigData/docker/tree/master/devel/base) and [pbd-cs](https://github.com/RBigData/docker/tree/master/devel/cs).
 
 
 

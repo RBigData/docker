@@ -1,6 +1,6 @@
-# pbdr-cs
+# pbdr-remoter
 
-Docker configuration for the remoter server. This includes the [pbdr-base](https://github.com/RBigData/docker/tree/master/pbdr-base) system.
+Docker configuration for the remoter server. This includes the [pbdr-base](https://github.com/RBigData/docker/tree/master/devel/base) system.
 
 
 
