@@ -1,6 +1,9 @@
 FROM rocker/r-base
 MAINTAINER "The pbdR Core Team" RBigData@gmail.com
 
+ENV MAKE make -j 2
+
+# set up system
 RUN apt-get update      \
   && apt-get install -y \
     wget                \
@@ -10,53 +13,48 @@ RUN apt-get update      \
     libopenmpi-dev
 
 
-# some CRAN dependencies
-RUN apt-get install -y \
-  r-cran-curl
 
-RUN r -e "install.packages(c('rlecuyer', 'remotes'), \
-  repos='https://cran.rstudio.com/', dependencies='Imports')"
-
-ENV COLOROUT_VERSION 1.1-2
+# set up R
+ENV COLOROUT_VERSION 1.2-0
 RUN cd /tmp \
-  && wget https://github.com/jalvesaq/colorout/releases/download/v1.2-2/colorout_1.1-2.tar.gz \
-  && tar zxf colorout_1.1-2.tar.gz \
-  && R CMD INSTALL colorout/ \
-  && rm colorout_1.1-2.tar.gz \
-  && rm -rf colorout/
+  && wget https://github.com/jalvesaq/colorout/archive/v${COLOROUT_VERSION}.tar.gz \
+  && tar zxf v${COLOROUT_VERSION}.tar.gz \
+  && R CMD INSTALL colorout-${COLOROUT_VERSION}/ \
+  && rm v${COLOROUT_VERSION}.tar.gz \
+  && rm -rf colorout-${COLOROUT_VERSION}/
 
-
-
-# install latest pbdR packages from github
-RUN r -e "                                      \
-  remotes::install_github('RBigData/pbdMPI')  ; \
-"
-
-
-
-# some quality of life stuff
-RUN echo "alias R='R --no-save --quiet'" >> /etc/bash.bashrc
 RUN echo "options(repos=structure(c(CRAN='https://cran.rstudio.com/'))) ; \
   utils::rc.settings(ipck=TRUE);                                          \
   library(colorout);                                                      \
   " > /usr/lib/R/etc/Rprofile.site
+RUN echo "alias R='R --no-save --quiet'" >> /etc/bash.bashrc
+
+RUN r -e "install.packages(c('rlecuyer', 'remotes'), dependencies='Imports')"
 
 
 
-# use openblas
-RUN update-alternatives --set libblas.so.3 /usr/lib/openblas-base/libblas.so.3
+# install pbdR
+RUN r -e "                                        \
+  remotes::install_github('RBigData/pbdMPI')    ; \
+  remotes::install_github('RBigData/pbdSLAP')   ; \
+  remotes::install_github('RBigData/pbdBASE')   ; \
+  remotes::install_github('RBigData/pbdDMAT')   ; \
+  remotes::install_github('RBigData/pbdDEMO')   ; \
+  remotes::install_github('RBigData/pbdIO')     ; \
+  remotes::install_github('RBigData/pbdML')     ; \
+  remotes::install_github('RBigData/pmclust')   ; \
+  remotes::install_github('RBigData/kazaam')    ; \
+  remotes::install_github('RBigData/tasktools') ; \
+"
 
 
 
-# cleanup
+# cleanup and create pbdR user
 RUN rm -rf /tmp/*
 RUN apt-get remove -y --purge python wget
 RUN apt-get autoremove -y
 RUN apt-get autoclean
 
-
-
-# create an R user
 ENV HOME /home/pbdR
 RUN useradd --create-home --home-dir $HOME pbdR \
   && chown -R pbdR:pbdR $HOME
@@ -64,7 +62,4 @@ RUN useradd --create-home --home-dir $HOME pbdR \
 WORKDIR $HOME
 USER pbdR
 
-
-
-# default command
 CMD ["bash"]
