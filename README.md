@@ -8,3 +8,5 @@ Builds are separated into `devel` for reasonably current development versions of
 * release sources: [pbdr.org/releases/](pbdr.org/releases/)
 
 For an explanation of which packages are distributed with each build, see the latest release's README (available from the release link above). There is no difference in which packages are distributed between devel and release builds.
+
+Special purpose containers, such as those we use for workshops, can be found in the `special/` tree.
